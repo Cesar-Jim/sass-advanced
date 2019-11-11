@@ -3,3 +3,23 @@
   padding: 25rem 0;
   margin-top: -20vh;
 }
+
+.section-features {
+  margin-top: -9rem;
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-size: cover; // this will nicely cover the entire section
+  transform: skewY(
+    -5deg
+  ); // Instead of using clip as done in the about section, skewY will be used here
+
+  & > * {
+    // this selector takes all (*) direct (>) children of this section, so it will only grab the feature boxes (class="row") but NOT their inner contents
+    transform: skewY(5deg); // this skew cancels the skew set for the background
+  }
+}
