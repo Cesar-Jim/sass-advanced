@@ -1,0 +1,278 @@
+/* Animations: */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+/* Simple reset using the universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* this inherits the box sizing of the body to all children elements */ }
+
+/* ******************* IMPORTANT: THE REM UNIT IS ALWAYS IN RELATION TO THE ROOT FON SIZE ********************* */
+html {
+  /* THE ROOT FONT SIZE IS SET IN THE HTML SELECTOR !!!!! */
+  /* font-size: 10px;  This is the root font size, so 1rem = 10px (this makes our life easier!) But using pixels here is a bad practice, so... */
+  /* This defines what 1 rem equals to... */
+  font-size: 62.5%;
+  /* 100% = 16px --> 10 / 16 = 0.625 --> 62.5% or 0.625 * 16px = 10px (our base font size) */ }
+
+body {
+  box-sizing: border-box;
+  /* Borders and paddings are no longer added to the total width of elements */ }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  /* equivalent to 30px */ }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+  /* equivalent to 60px */ }
+  .heading-primary--main {
+    display: block;
+    /* This creates a line break so that heading-primary-sub moves below this main text*/
+    font-size: 6rem;
+    /* equivalent to 30px */
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-out;
+    /* animation use cases: */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    /* equivalent to 20px */
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 0.75s ease-out; }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all, 0.3s; }
+  .heading-secondary:hover {
+    transform: skewY(-2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 0.7rem rgba(0, 0, 0, 0.2); }
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-small {
+  margin-bottom: 2rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem; }
+
+.btn {
+  /* The "after" pseudo-element adds like a virtual element right after the element that we are selecting */
+  /* after is basically treated as a child of .btn */ }
+  .btn:link, .btn:visited {
+    /* link is a special state of a selector when it is an anchor element */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    /* research what inline-block does. It is creating some padding on the top and it has its own space */
+    border-radius: 10rem;
+    /* set a very high number to get kind of a ellipse shape */
+    /* Animate the shadow of the button */
+    transition: all 0.2s;
+    /* the transition property has to be inside the initial state*/
+    /* set a relative position as reference to the after .btn */
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-3px);
+    /* in relation to the link state */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    /* in relation to the link state*/
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: '';
+    /* content and display are always required when after is used*/
+    display: inline-block;
+    /* use inline-block because .btn is also inline-block*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* set the after .btn behind the actual button with: */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* the transition always goes in the initial state */
+    transition: all 0.4s; }
+  .btn--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* this animation is for the main button. .75s is a delay for the animation */
+    animation-fill-mode: backwards;
+    /* automatically apply styles of the 0% (in moveInBottom animation) before the animation starts */ }
+
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #55c57a;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  transition: all 0.2s; }
+
+.btn-text:hover {
+  background-color: #55c57a;
+  color: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 1.6rem rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.3s; }
+    .composition__photo--p1 {
+      top: -2rem;
+      left: 0; }
+    .composition__photo--p2 {
+      top: 2rem;
+      right: 0; }
+    .composition__photo--p3 {
+      top: 10rem;
+      left: 20%; }
+    .composition__photo:hover {
+      transform: scale(1.05) translateY(-0.5rem) rotate(5deg);
+      box-shadow: 0 2.5rem 3.5rem rgba(0, 0, 0, 0.5);
+      z-index: 11; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.95); }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: '';
+    display: table;
+    clear: both; }
+  .row [class^='col-'] {
+    float: left; }
+    .row [class^='col-']:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc( 2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
+
+.header {
+  position: relative;
+  /* Position relative so that children can have a reference for their own position */
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    /* equivalent to 40px */
+    left: 4rem;
+    /* equivalent to 40px */ }
+  .header__logo {
+    height: 3.5rem;
+    /* If only the height or width is specified, the other property will be adjusted and calculated accordingly */ }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    /* In relation to the parent element */
+    left: 50%;
+    /* In relation to the parent element */
+    transform: translate(-50%, -50%);
+    /* In relation to the element itself */
+    text-align: center;
+    /* align all children at the center of the container */ }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }

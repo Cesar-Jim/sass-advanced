@@ -1,0 +1,20 @@
+/* Simple reset using the universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* this inherits the box sizing of the body to all children elements */
+}
+
+/* ******************* IMPORTANT: THE REM UNIT IS ALWAYS IN RELATION TO THE ROOT FON SIZE ********************* */
+html {
+  /* THE ROOT FONT SIZE IS SET IN THE HTML SELECTOR !!!!! */
+  /* font-size: 10px;  This is the root font size, so 1rem = 10px (this makes our life easier!) But using pixels here is a bad practice, so... */
+  /* This defines what 1 rem equals to... */
+  font-size: 62.5%; /* 100% = 16px --> 10 / 16 = 0.625 --> 62.5% or 0.625 * 16px = 10px (our base font size) */
+}
+
+body {
+  box-sizing: border-box; /* Borders and paddings are no longer added to the total width of elements */
+}

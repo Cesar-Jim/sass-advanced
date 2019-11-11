@@ -1,0 +1,39 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%; // due to responsiveness, images widths should be set as percentages if possible
+    box-shadow: 0 1.5rem 1.6rem rgba($color-black, 0.4);
+    border-radius: 20px;
+    position: absolute; // as soon as position is set to absolute, the elements will be placed according to a reference, and the reference is the first parent it finds, so composition's position should be set to relative.
+    z-index: 10;
+    // outline-offset: 0.8rem; // required for offset border
+    transition: all 0.3s;
+
+    &--p1 {
+      top: -2rem;
+      left: 0;
+    }
+
+    &--p2 {
+      top: 2rem;
+      right: 0;
+    }
+
+    &--p3 {
+      top: 10rem;
+      left: 20%;
+    }
+
+    &:hover {
+      // outline: 0.3rem solid rgba($color-primary, 0.7); // required for offset border
+      transform: scale(1.05) translateY(-0.5rem) rotate(5deg);
+      box-shadow: 0 2.5rem 3.5rem rgba($color-black, 0.5);
+      z-index: 11;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}

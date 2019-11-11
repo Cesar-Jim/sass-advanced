@@ -1,0 +1,32 @@
+.header {
+  position: relative; /* Position relative so that children can have a reference for their own position */
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem; /* equivalent to 40px */
+    left: 4rem; /* equivalent to 40px */
+  }
+
+  &__logo {
+    height: 3.5rem; /* If only the height or width is specified, the other property will be adjusted and calculated accordingly */
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%; /* In relation to the parent element */
+    left: 50%; /* In relation to the parent element */
+    transform: translate(-50%, -50%); /* In relation to the element itself */
+
+    text-align: center; /* align all children at the center of the container */
+  }
+}
