@@ -1,0 +1,44 @@
+.card {
+  perspective: 150rem; // this property has to do with the rotation (on hover) of the card and goes in the parent
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem; // this height is also set for __side in order to maintain the dimensions when the elements collapse due to the absolute positioning. Here the clearfix does not apply
+
+  &__side {
+    color: white;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 1s ease;
+    position: absolute; // this will make the cards overlap. The parent needs to have a relative position ALWAYS!
+    top: 0;
+    left: 0;
+    width: 100%; // make the card occupy the whole with of the column
+    backface-visibility: hidden; // it basically hides the back part of an element
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(-180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
