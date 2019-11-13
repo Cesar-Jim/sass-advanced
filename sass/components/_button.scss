@@ -40,10 +40,19 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* The "after" pseudo-element adds like a virtual element right after the element that we are selecting */
   /* after is basically treated as a child of .btn */
   &::after {
-    content: ''; /* content and display are always required when after is used*/
+    content: ""; /* content and display are always required when after is used*/
     display: inline-block; /* use inline-block because .btn is also inline-block*/
     height: 100%;
     width: 100%;
