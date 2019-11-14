@@ -1,0 +1,44 @@
+.story {
+  width: 75%;
+  margin: 0 auto; // use this to center when it is a block element inside another block element
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(
+    -12deg
+  ); // this will skew the parent and all the children. So the children need to be skewed on the opposite direction to cancel (see next line below)
+
+  & > * {
+    transform: skewX(
+      12deg
+    ); // also apply this same skew to the text and the image independently to take effct
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left; // in order to make the rest of the content around the shape
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(
+      50% at 50% 50%
+    ); // give the text a rounded shape border on the left side. The first number is the radius of the circle. 50% will be half the width and the heigh of the element, in this case, 15rem / 2 = 7.5rem. For this to work, the element must be floated and have defined width and height!
+
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(
+      50% at 50% 50%
+    ); // using the same circle as defined above in the shape-outside
+
+    transform: translateX(-3rem) skewX(12deg); // moving floats is always best to use transforms
+  }
+
+  &__img {
+    height: 100%; // flexible images for responsive web design always need a width or height. NO EXCEPTION!
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+}
