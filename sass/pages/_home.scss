@@ -31,7 +31,7 @@
 }
 
 .section-stories {
+  position: relative; // because the child has to function with position absolute, the parent needs to have position relative
   padding: 15rem 0;
-  background-color: $color-grey-light-1;
   font-size: $default-font-size;
 }
