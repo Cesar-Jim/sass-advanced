@@ -1,4 +1,5 @@
 .btn {
+  &, // this meas the simple button (no pseudo-classes)
   &:link,
   &:visited {
     /* link is a special state of a selector when it is an anchor element */
@@ -14,6 +15,10 @@
     /* set a relative position as reference to the after .btn */
     position: relative;
     font-size: $default-font-size;
+
+    // change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -26,7 +31,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px); /* in relation to the link state*/
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
@@ -52,7 +59,7 @@
   /* The "after" pseudo-element adds like a virtual element right after the element that we are selecting */
   /* after is basically treated as a child of .btn */
   &::after {
-    content: ""; /* content and display are always required when after is used*/
+    content: ''; /* content and display are always required when after is used*/
     display: inline-block; /* use inline-block because .btn is also inline-block*/
     height: 100%;
     width: 100%;
