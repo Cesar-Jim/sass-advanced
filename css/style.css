@@ -1,3 +1,26 @@
+/*
+
+Breakpoints:
+   0px -  600px     Phone
+ 600px -  900px     Tablet (portrait)
+ 900px - 1200px     Tablet (landscape)
+1200px - 1800px     Is where normal styles apply
+1800px - + px       Bigger screens
+
+
+**** "em" is the BEST unit for media queries ****
+// 1em = 16px
+//  600 / 16 = 37.5em
+//  900 / 16 = 56.25em
+// 1200 / 16 = 75em
+// 1800 / 16 = 112.5em
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
 /* Animations: */
 @keyframes moveInLeft {
   0% {
@@ -43,6 +66,15 @@ html {
   /* This defines what 1 rem equals to... */
   font-size: 62.5%;
   /* 100% = 16px --> 10 / 16 = 0.625 --> 62.5% or 0.625 * 16px = 10px (our base font size) */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box;

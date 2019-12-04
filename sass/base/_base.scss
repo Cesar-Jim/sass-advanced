@@ -13,6 +13,26 @@ html {
   /* font-size: 10px;  This is the root font size, so 1rem = 10px (this makes our life easier!) But using pixels here is a bad practice, so... */
   /* This defines what 1 rem equals to... */
   font-size: 62.5%; /* 100% = 16px --> 10 / 16 = 0.625 --> 62.5% or 0.625 * 16px = 10px (our base font size) */
+
+  // @include respond(phone) { <-- this media is no longer required since it also is 50%
+  //   font-size: 50%;
+  // }
+
+  // ALWAYS LARGER MEDIA QUERIES GO FIRST. IN CASE OF CONFLICTS THE SECOND QUERY WILL APPLY FOR SMALLER SCREENS!!!
+
+  @include respond(tab-land) {
+    // width < 1200px (GOES FIRST)
+    font-size: 56.25%; // 1rem = 9px, 9 / 16 = 0.5625 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    // width < 900px
+    font-size: 50%; // 1rem = 8px, 8 / 16 = 0.5 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12 / 16 = 0.75 = 75%
+  }
 }
 
 body {
