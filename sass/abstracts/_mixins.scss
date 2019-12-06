@@ -33,6 +33,14 @@ Breakpoints:
 // 1200 / 16 = 75em
 // 1800 / 16 = 112.5em
 
+
+ORDER to apply media queries:
+1. Base & typography
+2. Layout & grid
+3. Page specific layout
+4. Component specific layout
+
+
 $breakpoint argument choices:
 - phone
 - tab-port

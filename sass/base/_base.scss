@@ -37,4 +37,9 @@ html {
 
 body {
   box-sizing: border-box; /* Borders and paddings are no longer added to the total width of elements */
+  padding: 3rem; /* equivalent to 30px */
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
