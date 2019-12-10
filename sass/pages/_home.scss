@@ -2,6 +2,10 @@
   background-color: $color-grey-light-1;
   padding: 25rem 0;
   margin-top: -20vh;
+
+  @include respond(tab-port) {
+    padding: 20rem 0;
+  }
 }
 
 .section-features {
@@ -22,18 +26,30 @@
     // this selector takes all (*) direct (>) children of this section, so it will only grab the feature boxes (class="row") but NOT their inner contents
     transform: skewY(5deg); // this skew cancels the skew set for the background
   }
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .section-tours {
   margin-top: -9rem;
   background-color: $color-grey-light-1;
   padding: 25rem 0 15rem 0;
+
+  @include respond(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
 }
 
 .section-stories {
   position: relative; // because the child has to function with position absolute, the parent needs to have position relative
   padding: 15rem 0;
   font-size: $default-font-size;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .section-book {
@@ -43,6 +59,10 @@
     $color-primary-light,
     $color-primary-dark
   );
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .book {
