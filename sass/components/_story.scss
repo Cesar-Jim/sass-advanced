@@ -31,17 +31,22 @@
     width: 15rem;
     height: 15rem;
     float: left; // in order to make the rest of the content around the shape
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(
-      50% at 50% 50%
-    ); // give the text a rounded shape border on the left side. The first number is the radius of the circle. 50% will be half the width and the heigh of the element, in this case, 15rem / 2 = 7.5rem. For this to work, the element must be floated and have defined width and height!
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(
-      50% at 50% 50%
-    ); // using the same circle as defined above in the shape-outside
     transform: translateX(-3rem) skewX(12deg); // moving floats is always best to use transforms
     position: relative;
     overflow: hidden; // gets rid of the weird borders around the image
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(
+        50% at 50% 50%
+      ); // using the same circle as defined above in the shape-outside
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(
+        50% at 50% 50%
+      ); // give the text a rounded shape border on the left side. The first number is the radius of the circle. 50% will be half the width and the heigh of the element, in this case, 15rem / 2 = 7.5rem. For this to work, the element must be floated and have defined width and height!
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);

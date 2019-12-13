@@ -12,6 +12,7 @@
     top: 0;
     left: 0;
     width: 100%; // make the card occupy the whole with of the column
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; // it basically hides the back part of an element
     border-radius: 3px;
     overflow: hidden; // set this because the border radius was not being shown properly
