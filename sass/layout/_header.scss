@@ -16,9 +16,9 @@
     height: 95vh;
   }
 
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),
-    (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
-    (min-width: 125em) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
     // why 192dpi? because is the resolution of the apple retina screen
     // 600px / 16px = 37.5em
     // Media queries are always in em's
