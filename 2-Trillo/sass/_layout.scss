@@ -6,9 +6,14 @@
   min-height: 50rem;
 }
 .header {
+  font-size: 1.5rem;
   height: 7rem;
   background-color: #fff;
   border-bottom: var(--color-grey-light-2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .content {
   display: flex;
@@ -17,9 +22,14 @@
   background-color: var(--color-grey-dark-1);
   // flex: grow shrink basis
   flex: 0 0 18%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .hotel-view {
   background-color: #fff;
   background-color: orangered;
+  height: 80rem; // ONLY FOR TESTS PURPOSES, PLEASE REMOVE!
   flex: 1; // with flex 1 it grows as much as it can inside it's container
 }
